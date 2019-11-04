@@ -1,0 +1,135 @@
+@import '../assets/scss/var.scss';
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  padding: 0 10px 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+
+.vocab-required {
+  color: $error;
+}
+.vocab-label {
+  display: block;
+  font-weight: 700;
+}
+
+.vocab-input {
+  margin: 0;
+  display: inline-block;
+  white-space: normal;
+  border: 1px solid $grey;
+  background: #fff;
+  padding: 8px 12px;
+
+  &[type=search] {
+    box-sizing: border-box;
+  }
+
+  &:focus:not([readonly]) {
+    border-color: $main-color;
+    outline: none;
+  }
+
+  &--multiline {
+    min-height: 60px;
+  }
+  &[readonly] {
+    cursor: default;
+    border-color: transparent;
+    padding-left: 0;
+  }
+}
+
+.vocab-select {
+  margin: 0;
+  display: inline-block;
+  white-space: normal;
+  border: 1px solid $grey;
+  background: #fff;
+  padding: 9px 12px;
+  min-height: 38px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.vocab-error {
+  margin: 0;
+  padding: 3px 0 0;
+  color: $error;
+}
+.sz-error {
+  margin: 0;
+  padding: 3px 0 0;
+  color: $error;
+}
+
+.vocab-button {
+  display: inline-block;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  background: $dove-grey;
+  border: 1px solid $dove-grey;
+  color: #fff;
+  padding: 8px 25px;
+  cursor: pointer;
+  text-align: center;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &:focus {
+    outline: none;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: #fff;
+    border-color: $main-color;
+    background-color: $main-color;
+    text-decoration: none;
+  }
+}
+
+.form-element {
+  margin: 0 0 15px;
+  &__label {
+    display: block;
+    margin: 0 0 2px;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &--action {
+    text-align: right;
+    .vocab-button {
+      min-width: 150px;
+    }
+  }
+}
+
+.logo {
+  &__link {
+    display: block;
+    color: $main-color;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}

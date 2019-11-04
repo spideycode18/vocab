@@ -1,6 +1,6 @@
 # Vocab
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17. [Node](https://nodejs.org) version 12.13.0. [npm] version 6.12.0
 
 ## Development server
 
