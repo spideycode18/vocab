@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { CategoryService } from 'src/app/core/services/category.service';
 
 @Component({
   selector: 'add-word',
@@ -9,20 +10,28 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 })
 export class AddWordComponent implements OnInit {
   public isNewCat: boolean = false;
+  public categories$: any;
 
 
-  constructor(public library: FaIconLibrary) {
-    library.addIcons(faTrash);
+  constructor(public library: FaIconLibrary,
+              private category: CategoryService
+    ) {
+    library.addIcons(faTrash, faPlus);
+    this.categories$ = category.getAll();
   }
 
-  addNewCat() {
+  showNewCat() {
     this.isNewCat = true;
   }
-
-  removeNewCat() {
+  
+  hideNewCat() {
     this.isNewCat = false;
   }
-
+  
+  addNewCat() {
+    this.isNewCat = true;
+    this.category.add({})
+  }
   ngOnInit() {
   }
 

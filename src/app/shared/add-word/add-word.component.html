@@ -4,18 +4,19 @@
     <div class="input-group">
       <select class="custom-select">
         <option disabled>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        <option *ngFor="let cat of (categories$ | async)" value="{{cat.uid}}">{{cat.name}}</option>
       </select>
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" (click)="addNewCat()">Add new</button>
+        <button class="btn btn-outline-secondary" type="button" (click)="showNewCat()">Add new</button>
       </div>
     </div>
     <div class="input-group mt-2" *ngIf="isNewCat">
       <input type="text" class="form-control" placeholder="New category">
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" (click)="removeNewCat()"><fa-icon icon="trash"></fa-icon></button>
+        <button class="btn btn-outline-secondary" type="button" (click)="hideNewCat()"><fa-icon icon="trash"></fa-icon></button>
+      </div>
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" (click)="addNewCat()"><fa-icon icon="plus"></fa-icon></button>
       </div>
     </div>
   </div>
