@@ -11,11 +11,11 @@ export class CategoryService {
 
   getAll() {
     return this.db.object('/wEquw4yujIZuU47sWNgG5NKseG33/categories').valueChanges().pipe(
-      map(data => Object.keys(data).map(key => ({uid: key, name: data[key]})))
+      map(data => Object.keys(data).map(key => ({uid: key, ...data[key]})))
     );
   }
 
-  add(category) {
+  add(category: any) {
     return this.db.list('/wEquw4yujIZuU47sWNgG5NKseG33/categories').push(category);
   }
 }

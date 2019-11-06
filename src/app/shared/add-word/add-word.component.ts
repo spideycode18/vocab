@@ -11,6 +11,8 @@ import { CategoryService } from 'src/app/core/services/category.service';
 export class AddWordComponent implements OnInit {
   public isNewCat: boolean = false;
   public categories$: any;
+  public newCat: string = "";
+  public word: any = {category: '', word: ''};
 
 
   constructor(public library: FaIconLibrary,
@@ -30,7 +32,12 @@ export class AddWordComponent implements OnInit {
   
   addNewCat() {
     this.isNewCat = true;
-    this.category.add({})
+    this.category.add({name: this.newCat});
+  }
+
+  save(e, f) {
+    e.preventDefault();
+    console.log(f);
   }
   ngOnInit() {
   }

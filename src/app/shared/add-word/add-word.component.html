@@ -1,17 +1,17 @@
-<form action="" class="add-form">
+<form action="" class="add-form" #f="ngForm" (ngSubmit)="save($event, f.value)">
   <div class="form-group">
     <label for="">Category</label>
     <div class="input-group">
-      <select class="custom-select">
-        <option disabled>Choose...</option>
-        <option *ngFor="let cat of (categories$ | async)" value="{{cat.uid}}">{{cat.name}}</option>
+      <select class="custom-select" name="category" #category="ngModel" required [(ngModel)]="word.category">
+        <option value="" selected>Choose...</option>
+        <option *ngFor="let cat of (categories$ | async)" [value]="cat.uid">{{cat.name}}</option>
       </select>
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" (click)="showNewCat()">Add new</button>
       </div>
     </div>
     <div class="input-group mt-2" *ngIf="isNewCat">
-      <input type="text" class="form-control" placeholder="New category">
+      <input type="text" class="form-control" placeholder="New category" [(ngModel)]="newCat" [ngModelOptions]="{standalone: true}">
       <div class="input-group-append">
         <button class="btn btn-outline-secondary" type="button" (click)="hideNewCat()"><fa-icon icon="trash"></fa-icon></button>
       </div>
@@ -22,7 +22,7 @@
   </div>
   <div class="form-group">
     <label for="">Word</label>
-    <input type="text" class="form-control" placeholder="New word">
+    <input type="text" class="form-control" placeholder="New word" name="word" #word="ngModel" required [(ngModel)]="word.word">
   </div>
   <button class="btn btn-primary btn-block" type="submit">Add word</button>
 </form>
