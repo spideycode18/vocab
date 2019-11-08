@@ -11,12 +11,14 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './shared/login/login.component';
 import { environment } from 'src/environments/environment';
 import { AddWordComponent } from './shared/add-word/add-word.component';
+import { HeaderComponent } from './core/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    AddWordComponent
+    AddWordComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,22 @@
+@import '../../../assets/scss/var.scss';
+
+.header {
+  border-bottom: 1px solid $primary;
+  padding: 10px 0;
+  margin-bottom: 10px;
+}
+
+.header-container {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin: 0;
+  a {
+    display: block;
+    line-height: 1;
+  }  
+}

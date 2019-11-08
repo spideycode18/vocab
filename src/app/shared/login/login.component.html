@@ -1,1 +1,6 @@
-<button class="btn btn-primary btn-block" (click)="login()">Login with Google</button>
+<div class="logout">
+  <button *ngIf="isLogin; else signIn" type="button" class="btn btn-outline-primary" (click)="logout()">Sign out</button>
+  <ng-template #signIn>
+    <button class="btn btn-primary" (click)="login()">Sign in with Google</button>
+  </ng-template>
+</div> 
