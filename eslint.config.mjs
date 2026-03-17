@@ -1,18 +1,37 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+// eslint.config.mjs
+import { defineConfig, globalIgnores } from 'eslint/config'
+import nextVitals from 'eslint-config-next/core-web-vitals'
+import prettier from 'eslint-config-prettier/flat'
 
-const eslintConfig = defineConfig([
+export default defineConfig([
   ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
+  prettier,
 
-export default eslintConfig;
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'node_modules/**',
+    'next-env.d.ts',
+    'coverage/**',
+  ]),
+
+  {
+    rules: {
+      'react-hooks/exhaustive-deps': 'error',
+      '@next/next/no-img-element': 'error',
+      'react/react-in-jsx-scope': 'off',   // React 17+ JSX transform
+      'react/prop-types': 'off',            // TypeScript thay thế
+      '@typescript-eslint/no-unused-vars': ['error', {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+      }],
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/consistent-type-imports': 'error',
+      '@typescript-eslint/no-empty-object-type': 'error',
+
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      'import/no-anonymous-default-export': 'warn',
+    },
+  },
+])
